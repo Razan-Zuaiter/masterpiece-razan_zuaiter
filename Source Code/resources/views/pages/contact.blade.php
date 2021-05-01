@@ -1,8 +1,6 @@
 @extends('layouts.templet')
-
 @section('shop_content')
-
-    <div class="page-banner-area item-bg1">
+    <div class="page-banner-area item-bg3">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
@@ -12,7 +10,6 @@
                             <li>
                                 <a href="/">الرئيسة</a>
                             </li>
-                            |
                             <li>تواصل</li>
                         </ul>
                     </div>
@@ -51,8 +48,15 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" name="subjects" id="subjects" class="form-control" required
-                                            data-error="Please enter your subjects" placeholder="عنوان الموضوع" />
+                                        <select name="subjects" id="subjects" class="form-control" required
+                                            data-error="Please enter your subjects" placeholder="عنوان الموضوع">
+                                            <option selected="selected">اختر عنوان الموضوع</option>
+                                            <option value="volvo">تبرعات</option>
+                                            <option value="saab">اقتراح</option>
+                                            <option value="mercedes">شكوى</option>
+                                            <option value="audi">أخرى</option>
+                                        </select>
+
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -96,25 +100,17 @@
                             </li>
                             <li>
                                 <img src="https://img.icons8.com/bubbles/50/000000/email.png" />
-                                <a
-                                    href="https://templates.envytheme.com/cdn-cgi/l/email-protection#82eae7eeeeedc2e9e7f6e3ecace1edef"><span
-                                        class="__cf_email__"
-                                        data-cfemail="96fef3fafaf9d6fdf3e2f7f8b8f5f9fb">razan@gmail.com</span></a>
+                                <a href="mailto:zuaiter.razan@gmail.com">zuaiter.razan@gmail.com</a>
                             </li>
-
                         </ul>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <div id="map">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8602.101207526828!2d35.8819216707512!3d32.548179887858566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c767ae6c640b9%3A0xebdf073ea89f6e9d!2sBarada%20Wedding%20Hall!5e0!3m2!1sen!2sjo!4v1619655538991!5m2!1sen!2sjo"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
-
 @endsection

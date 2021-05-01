@@ -1,5 +1,4 @@
 @extends('layouts.templet')
-
 @section('shop_content')
     <div class="main-banner">
         <div class="main-banner-item">
@@ -9,7 +8,6 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="main-banner-content">
-                                    {{-- <span>نجيب</span> --}}
                                     <h1> لنكتشف عالما مليئا بالسحر و الخيال و المتعة </h1>
                                     <p>
                                         نجيب هو رفيقك في عالم القراءة ذلك المكان السحري الذي سيغر حياتك للأبد </p>
@@ -37,10 +35,10 @@
                 <img src="assets/img/main-banner/banner-shape-1.png" alt="image" />
             </div>
             <div class="shape-2">
-                <img src="assets/img/main-banner/banner-shape-2.png" alt="image" />
+                <img src="assets/img/main-banner/banner-shape-22.png" alt="image" />
             </div>
             <div class="shape-3">
-                <img src="assets/img/main-banner/banner-shape-3.png" alt="image" />
+                <img src="assets/img/main-banner/banner-shape-33.png" alt="image" />
             </div>
             <div class="shape-4">
                 <img src="assets/img/main-banner/banner-shape-4.png" alt="image" />
@@ -52,40 +50,42 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="who-we-are-image">
-                        <img src="assets/img/who-we-are/najeeb4.jpg" alt="image" />
+                        <img src="assets/img/who-we-are/about.png" alt="image" />
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="who-we-are-content">
-                        <span>من نحن ؟</span>
-                        <h3>من هو نجيب؟</h3>
+                        <span>حول</span>
+                        <h3>إقرأ , تعلّم و استمتع </h3>
                         <p>
-                            مرحبا
+                            نجيب هي منصة عربيّة مجانيّة,تتيح للأطفال البحث عن الكتب المفضلة لديهم و قرائتها و من ثمّ إضافتها
+                            .إلى رفّهم الخاص أو شرائها ورقيًا
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            نجيب هو الحل الآمن و البديل الأفضل للألعاب و المواقع الإلكترونية التي تضر أطفالنا و تخالف
+                            .تعاليمنا و تقاليدنا العربيّة
                         </p>
+                        يمتاز نجيب بالأمور التالية:
                         <ul class="who-we-are-list">
                             <li>
                                 <span>1</span>
-                                Homelike Environment
+                                سهل الاستخدام
                             </li>
                             <li>
                                 <span>2</span>
-                                Quality Educators
+                                تصميم مميز و جاذب
                             </li>
                             <li>
                                 <span>3</span>
-                                Safety and Security
+                                توافر عدد كبير من الكتب
                             </li>
                             <li>
                                 <span>4</span>
-                                Play to Learn
+                                امكانية الشراء و الاحتفاظ بالكتب
                             </li>
                         </ul>
                         <div class="who-we-are-btn">
-                            <a href="/about" class="default-btn">مشاهدة المزيد</a>
+                            <a href="/about" class="default-btn">إقرأ المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-md-3">
                                                 <div class="event-image">
-                                                    <a href="#"><img src="images/{{ $value->category_image }}"
+                                                    <a href="{{ route('category.show', $value->category_id) }}">
+                                                        <img src='{{ asset('images/' . $value->category_image) }}'
                                                             alt="image" /></a>
                                                 </div>
                                             </div>
@@ -140,18 +141,15 @@
                         </div>
                     </div>
                 </section>
-
-
             </div>
         </div>
     </section>
-
     <section class="value-area ptb-100">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="value-image">
-                        <img src="assets/img/value/main-banner-1.png" alt="image" />
+                        <img src="assets/img/main-banner/main.jpg" alt="image" />
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -164,30 +162,30 @@
                             <div class="number">
                                 <span>01</span>
                             </div>
-                            <h4>Active Learning</h4>
+                            <h4>غرس عادة القراءة</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                نحن نهدف بشكل أساسي إلى إحياء القراءة لدى الطفل العربّي ,منطلقين من إيماننا بكونها الطريقة
+                                المثلى لتعزيز الثقافة و السلوك
                             </p>
                         </div>
                         <div class="value-inner-content">
                             <div class="number">
                                 <span class="bg-2">02</span>
                             </div>
-                            <h4>Safe Environment</h4>
+                            <h4>توفير بيئة آمنة</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                نحن نوفّر محتوى راقٍ و مدروس بعناية لتطوير مهارات اطفالنا بالإضافة إلى توسعة مداركهم و
+                                إطلاعهم على الثقافات الأخرى و تقبّل الآخر
                             </p>
                         </div>
                         <div class="value-inner-content">
                             <div class="number">
                                 <span class="bg-3">03</span>
                             </div>
-                            <h4>Fully Equipment</h4>
+                            <h4>تعزيز العلاقات الانسانية</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                نحن نهدف إلى توطيد علاقة الآباء بأبنائهم و المعلمين بطلبتهم , كما و نهدف إلى توطيد علاقات
+                                الأطفال ببعضهم و بالعالم
                             </p>
                         </div>
                     </div>
@@ -208,7 +206,36 @@
         </div>
     </section>
 
+    <div class="newsletter-area ptb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="newsletter-content">
+                        <h2>هل ترغب بالبحث عن كتاب ما ؟</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <form action="search" method="post" style="display:flex">
+                        @csrf
+                        <input type="text" name="search" class="form-control" placeholder="  ادخل عنوان الكتاب لتبحث عنه"
+                            autocomplete="off" dir="rtl" />
 
+                        <button type="submit" class="optional-btn"
+                            style="display:flex; outline: none; color:white ; border:none ;justify-content:space-between"><img
+                                src="https://img.icons8.com/bubbles/50/000000/search.png" /></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class=" newsletter-shape">
+            <div class="shape-1">
+                <img src="assets/img/newsletter/newsletter-shape-1.png" alt="image" />
+            </div>
+            <div class="shape-2">
+                <img src="assets/img/newsletter/newsletter-shape-2.png" alt="image" />
+            </div>
+        </div>
+    </div>
 
     <section class="class-area bg-fdf6ed pt-100 pb-70">
         <div class="container">
@@ -222,20 +249,17 @@
                         <div class="single-class">
                             <div class="class-image">
                                 <a href="{{ route('book.show', $value->book_id) }}">
-                                    <img src="images/{{ $value->book_image }}" alt="image"
-                                        style="width:25rem;height:20rem" />
+                                    <img src='{{ asset('images/' . $value->book_image) }}' alt="image"
+                                        style="width:28rem;height:20rem" />
                                 </a>
                             </div>
                             <div class="class-content">
-                                <div class="price" style="text-align: left !important"> {{ $value->book_price }} jod
-
+                                <div class="price" style="text-align: left !important"> {{ $value->book_price }} JOD
                                 </div>
-
                                 <p style="text-align: left !important"> المؤلف:{{ $value->book_author }}</p>
                                 <h3>
                                     <a href="{{ route('book.show', $value->book_id) }}">{{ $value->book_name }}</a>
                                 </h3>
-
                                 <ul class="class-list">
                                     <li>
                                         <span>العمر:</span>
@@ -258,16 +282,14 @@
                                     <a href="{{ route('book.show', $value->book_id) }}" class="default-btn">اقرأ
                                         الآن</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center pagination">
                 {!! $books->links() !!}
             </div>
-
         </div>
         <div class="class-shape">
             <div class="shape-1">
@@ -279,23 +301,54 @@
         </div>
     </section>
     {{-- Viedo --}}
-    {{-- <section class="class-area bg-fdf6ed pt-100 pb-70">
+    <section class="class-area bg-fdf6ed pt-100 pb-70">
         <div class="container">
             <div class="section-title">
                 <span>شاهد </span>
                 <h2>فيدوهات </h2>
             </div>
             <div class="row">
-            <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="single-class">
+                        <div class="class-image">
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/JK2bflx_wzc">
+                            </iframe>
+                        </div>
                         <div class="class-content">
-                            <div class="price" style="text-align: left !important">
-
-                            </div>
-
-                            <p style="text-align: left !important"> المؤلف:</p>
                             <h3>
-                                <a href="#"></a>
+                                <a
+                                    href="https://www.youtube.com/watch?v=JK2bflx_wzc&list=PL5Pd1geIk9IWl5If24q2Ua7QblFOQrCug&index=2&ab_channel=Madrasa">
+                                    كيف أكتشف موهبتي وأنميها؟ </a>
+                            </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-class">
+                        <div class="class-image">
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/QF8XjP4fOzk">
+                            </iframe>
+                        </div>
+                        <div class="class-content">
+                            <h3>
+                                <a href="https://www.youtube.com/watch?v=QF8XjP4fOzk&ab_channel=Madrasa"> تعلّم تنظيم الوقت
+                                </a>
+                            </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-class">
+                        <div class="class-image">
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/_gsfpxFjXNU">
+                            </iframe>
+                        </div>
+                        <div class="class-content">
+                            <h3>
+                                <a href="https://www.youtube.com/watch?v=_gsfpxFjXNU&ab_channel=Madrasa">
+                                    كيف تلخّص الكتاب الذي قرأته؟</a>
                             </h3>
 
                         </div>
@@ -303,14 +356,5 @@
                 </div>
             </div>
         </div>
-        <div class="class-shape">
-            <div class="shape-1">
-                <img src="assets/img/class/class-shape-1.png" alt="image" />
-            </div>
-            <div class="shape-2">
-                <img src="assets/img/class/class-shape-2.png" alt="image" />
-            </div>
-        </div>
-    </section> --}}
-
+    </section>
 @endsection

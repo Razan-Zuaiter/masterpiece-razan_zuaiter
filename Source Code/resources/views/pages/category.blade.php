@@ -11,7 +11,6 @@
                             <li>
                                 <a href="/">الرئيسة</a>
                             </li>
-                            |
                             <li>تصنيفات</li>
                         </ul>
                     </div>
@@ -60,8 +59,6 @@
                             </div>
                         </div>
                     </section>
-
-
                 </div>
             </div>
         </div>

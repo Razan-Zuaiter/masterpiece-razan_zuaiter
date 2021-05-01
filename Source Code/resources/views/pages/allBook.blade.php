@@ -1,17 +1,16 @@
 @extends('layouts.templet')
-
 @section('shop_content')
     <div class="page-banner-area item-bg1">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-banner-content">
-                        <h2>Class</h2>
-                        <ul>
+                        <h2>جميع الكتب</h2>
+                        <ul dir="ltr">
                             <li>
-                                <a href="index.html"> جميع الكتب</a>
+                                <a href="/"> الرئيسة </a>
                             </li>
-                            <li>Class</li>
+                            <li>جميع الكتب</li>
                         </ul>
                     </div>
                 </div>
@@ -26,7 +25,7 @@
                         <h2>هل ترغب بالبحث عن كتاب ما ؟</h2>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <form action="search" method="post" style="display:flex">
                         @csrf
                         <input type="text" name="search" class="form-control" placeholder="  ادخل عنوان الكتاب لتبحث عنه"
@@ -51,14 +50,17 @@
     </div>
     <section class="class-area pt-100 pb-100">
         <div class="container">
+            <div class="title" style="padding-bottom:4rem ; text-align:center">
+                <h3> عدد الكتب المتوافرة في نجيب : {{ $books->count() }} كتاب</h3>
+            </div>
             <div class="row">
                 @foreach ($books->shuffle() as $book => $value)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-class">
                             <div class="class-image">
-                                <a href="#">
-                                    <img src="images/{{ $value->book_image }}" alt="image"
-                                        style="width:25rem;height:20rem" />
+                                <a href="{{ route('book.show', $value->book_id) }}">
+                                    <img src='{{ asset('images/' . $value->book_image) }}' alt="image"
+                                        style="width:28rem;height:20rem" />
                                 </a>
                             </div>
                             <div class="class-content">

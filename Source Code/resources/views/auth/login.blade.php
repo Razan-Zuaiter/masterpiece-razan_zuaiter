@@ -10,29 +10,23 @@
                     @else
                         Admin Login
                     @endif
-
                 </h2>
                 <form action="{{ $loginRoute }}" method="POST" class="login100-form validate-form">
                     @csrf
                     @if ($errors->has('email'))
                         <div class="text-danger">{{ $errors->first('email') }}</div>
                     @endif
-
                     <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz">
                         <span>البريد الإلكتروني</span>
                         <input class="form-control" type="text" name="email" placeholder="البريد الإلكتروني"
                             value="{{ old('email') }}">
                         <span class="focus-input100"></span>
                     </div>
-
-
                     <div class="form-group validate-input" data-validate="Password is required">
                         <span>الرمز السرّي</span>
                         <input class="form-control" type="password" name="password" placeholder="*************">
                         <span class="focus-input100"></span>
                     </div>
-
-
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -53,6 +47,6 @@
                 </form>
             </div>
         </div>
-        </div>
+    </section>
 
-    @endsection
+@endsection

@@ -1,25 +1,29 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">View User</div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <span>{{ $error }}</span>
+                        <br>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
 
-            <div class="box">
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
-                <div class="box-header">
-                    <h3 class="box-title">User Management Table</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                <div class="table-responsive table-responsive-data2">
+                    <table id="example1" class="table table-data2">
                         <thead>
                             <tr>
-                                <th width="5%">Profile</th>
+                                <th width="10%">Image</th>
                                 <th>Name</th>
                                 <th>Email Address</th>
-                                <th></th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,16 +31,18 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>
-                                        <center><img src={{ asset("images/$user->image") }} width="30" class="user-image"
-                                                alt="User Image" /></center>
+                                        <img src='{{ asset($user->image) }}' alt="User Image" />
                                     </td>
                                     <td>{{ $user->name }}</td>
-                                    <td><i style="color:blue">{{ $user->email }}</i></td>
+                                    <td>{{ $user->email }}</i></td>
                                     <td>
-                                        <form action="{{ route('admin.manageUsers.destroy', $user->id) }}" method="post">
+                                        <form action="{{ route('admin.manageUser.destroy', $user->user_id) }}"
+                                            method="post">
                                             @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                            @method(' DELETE') <button type="submit" class="item" data-toggle="tooltip"
+                                                data-placement="top" title="Delete">
+                                                <img src="https://img.icons8.com/bubbles/50/000000/delete-forever.png" />
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

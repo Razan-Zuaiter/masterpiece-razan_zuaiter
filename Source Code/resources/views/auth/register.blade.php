@@ -62,7 +62,7 @@
                 </form>
             </div>
         </div>
-        </div>
 
 
-    @endsection
+    </section>
+@endsection

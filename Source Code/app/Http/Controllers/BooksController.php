@@ -11,7 +11,7 @@ class BooksController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+        $books =  DB::table('books')->simplePaginate(5);
         $categories = Category::all();
         return view('admin.manageBook', compact('books', 'categories'));
     }
@@ -109,7 +109,7 @@ class BooksController extends Controller
         $book->upload_file = $fileName;
         $book->book_image = $imageName;
         $book->save();
-        return redirect('/manageBook')->with('success', 'Contact updated!');
+        return redirect('admin/manageBook')->with('success', 'Contact updated!');
     }
 
 

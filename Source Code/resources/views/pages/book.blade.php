@@ -1,5 +1,4 @@
 @extends('layouts.templet')
-
 @section('shop_content')
     <h2>{{ $book->book_name }}</h2>
     <div class="page-banner-area item-bg4">
@@ -8,9 +7,9 @@
                 <div class="container">
                     <div class="page-banner-content">
                         <h2>تقاصيل الكتاب</h2>
-                        <ul>
+                        <ul dir="ltr">
                             <li>
-                                <a href="index.html">الرئيسة</a>
+                                <a href="/">الرئيسة</a>
                             </li>
                             <li>تفاصيل</li>
                         </ul>

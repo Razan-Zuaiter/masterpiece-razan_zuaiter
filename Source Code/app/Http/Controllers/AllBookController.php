@@ -52,6 +52,9 @@ class AllBookController extends Controller
             ->where('book_name', 'LIKE', "%{$search}%")
             ->get();
 
+        // if ($books !=  $search) {
+        //     return view('pages.notFound');
+        // }
         // dd($search);
 
         return view('pages.allBook', compact('book', 'categories', 'books'));

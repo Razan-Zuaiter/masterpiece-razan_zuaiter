@@ -1,17 +1,16 @@
 @extends('layouts.templet')
-
 @section('shop_content')
     <div class="page-banner-area item-bg1">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-banner-content">
-                        <h2>Class</h2>
-                        <ul>
+                        <h2>تصنيفات الكتب</h2>
+                        <ul dir="ltr">
                             <li>
-                                <a href="index.html"> جميع الكتب</a>
+                                <a href="/">الرئيسة</a>
                             </li>
-                            <li>Class</li>
+                            <li>تصنيفات الكتب</li>
                         </ul>
                     </div>
                 </div>

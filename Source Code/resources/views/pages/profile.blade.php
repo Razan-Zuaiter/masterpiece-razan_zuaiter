@@ -1,5 +1,4 @@
 @extends('layouts.templet')
-
 @section('shop_content')
     <div class="page-banner-area item-bg1">
         <div class="d-table">
@@ -11,7 +10,6 @@
                             <li>
                                 <a href="/">الرئيسة</a>
                             </li>
-                            |
                             <li>الصفحة الشخصية</li>
                         </ul>
                     </div>
@@ -19,15 +17,13 @@
             </div>
         </div>
     </div>
-
     <section class="class-details-area pt-100 pb-70">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <div class="class-details-desc">
                         <div class="class-desc-image">
-                            <img src="assets/img/class-details.jpg" alt="image">
-
+                            <img src="assets/img/gallery/gallery-2.jfif" alt="image Cover">
                         </div>
                         <div class="tab class-details-tab">
                             <div class="row">
@@ -39,10 +35,8 @@
                                         <li>
                                             <a href="#"> الرف </a>
                                         </li>
-
                                     </ul>
                                 </div>
-
                                 <div class="col-lg-12 col-md-12">
                                     <div class="tab_content">
                                         <div class="tabs_item">
@@ -56,7 +50,7 @@
                                                                 <th>اسم الكتاب</th>
                                                                 <th>تاريخ الشراء</th>
                                                                 <th>تاريخ التوصيل</th>
-                                                                <th>السعر الكتاب الواحد</th>
+                                                                <th>سعر الكتاب الواحد</th>
                                                                 <th>السعر الكلي</th>
                                                             </tr>
                                                         </thead>
@@ -105,9 +99,9 @@
                                                                         <a
                                                                             href="{{ route('book.show', $userShelve->book_id) }}">
                                                                             <img src="
-                                                                                    images/{{ $userShelve->book_image }}"
+                                                                                                                                            images/{{ $userShelve->book_image }}"
                                                                                 alt="image"
-                                                                                style="width:20rem;height:20rem" />
+                                                                                style="width:28rem;height:20rem" />
                                                                         </a>
                                                                     </div>
                                                                     <div class="class-content">
@@ -177,7 +171,6 @@
                                 {{ $userId->name }}
                             </li>
                             <li>
-
                                 <span>عدد الكتب التي اشتريتها : </span>
                                 {{ $userBooks->count() }} كتاب
                             </li>
@@ -190,10 +183,7 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
     </section>
-
-
 @endsection

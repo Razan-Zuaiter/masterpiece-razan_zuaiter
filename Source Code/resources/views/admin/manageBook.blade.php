@@ -22,9 +22,6 @@
                             <input type="text" id="book_name" name="book_name" placeholder="book name" class="form-control">
                         </div>
                     </div>
-                    {{-- <div class="input-group-addon">
-                       
-                    </div> --}}
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -39,14 +36,11 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div>
                             <div class="input-group-addon ">
                                 <img src="https://img.icons8.com/bubbles/50/000000/multi-edit.png" />
                             </div>
-                            {{-- <textarea class="ckeditor form-control" name="category_description" type="text"
-                                cols='30'></textarea> --}}
                         </div>
                         <textarea id='article-ckeditor' name="book_description"
                             class="form-control">{{ old('book_description') }}</textarea>
@@ -86,7 +80,6 @@
                             <input type="text" id="book_age" name="book age" placeholder="book age" class="form-control">
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -96,9 +89,6 @@
                                 class="form-control">
                         </div>
                     </div>
-
-
-
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -128,16 +118,14 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-md-12">
                 <!-- DATA TABLE -->
-                <h3 class="title-5 m-b-35">book Table</h3>
+                <h3 class="title-5 m-b-35">Books table</h3>
                 <div class="table-responsive table-responsive-data2">
                     <table class="table table-data2">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>book name</th>
-                                <th>book description</th>
                                 <th>book price</th>
-                                <th>book pagesNumber</th>
+                                <th>book pages number</th>
                                 <th>book language</th>
                                 <th>book age</th>
                                 <th>book Author</th>
@@ -151,27 +139,24 @@
                         </thead>
                         <tbody>
                             @foreach ($books as $book)
-                                <tr class="tr-shadow">
-                                    <td>{{ $book['book_id'] }}</td>
+                                <tr>
 
-                                    <td>{{ $book['book_name'] }}</td>
-                                    {{-- <td>
-                                        {!! $book['book_description'] !!}
-                                    </td> --}}
+                                    <td style="width:4rem">{{ $book->book_name }}</td>
+
                                     <td>
-                                        {{ $book['book_price'] }}
+                                        {{ $book->book_price }} JOD
                                     </td>
                                     <td>
-                                        {{ $book['book_pagesNumber'] }}
+                                        {{ $book->book_pagesNumber }} pages
                                     </td>
                                     <td>
-                                        {{ $book['book_language'] }}
+                                        {{ $book->book_language }}
                                     </td>
                                     <td>
-                                        {{ $book['book_age'] }}
+                                        {{ $book->book_age }} years
                                     </td>
                                     <td>
-                                        {{ $book['book_author'] }}
+                                        {{ $book->book_author }}
                                     </td>
                                     <td>
                                         <img src='{{ asset('images/' . $book->book_image) }}'
@@ -180,7 +165,8 @@
 
                                     </td>
                                     <td>
-                                        <iframe src="uploads/{{ $book->upload_file }}" width="60%" height="10%">
+                                        <iframe src='{{ asset('uploads/' . $book->upload_file) }}'
+                                            style="width:100%; height:10%">
                                         </iframe>
 
                                     </td>
@@ -199,7 +185,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="item" data-toggle="tooltip" data-placement="top"
                                                 title="Delete">
-                                                <img src="https://img.icons8.com/bubbles/75/000000/delete-forever.png" />
+                                                <img src="https://img.icons8.com/bubbles/50/000000/delete-forever.png" />
                                             </button>
                                         </form>
                                     </td>
@@ -210,6 +196,9 @@
                                 </tr>
                                 <tr class="spacer"></tr>
                             @endforeach
+                            <div class="d-flex justify-content-center pagination">
+                                {!! $books->links() !!}
+                            </div>
                         </tbody>
                     </table>
                 </div>

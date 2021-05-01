@@ -1,4 +1,5 @@
 @extends('layouts.templet')
+
 @section('shop_content')
     <div class="page-banner-area item-bg1">
         <div class="d-table">
@@ -10,7 +11,6 @@
                             <li>
                                 <a href="/">الرئيسة</a>
                             </li>
-                            |
                             <li>الشراء</li>
                         </ul>
                     </div>
@@ -133,7 +133,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </section>

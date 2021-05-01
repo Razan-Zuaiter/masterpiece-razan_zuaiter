@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Auth;
 
 //Admin Auth
 Route::middleware('auth:admin')->prefix('/admin')->name('admin.')->group(function () {
-  // Route::get('/', 'AdminController@view');
-  // Route::post('/', 'AdminController@store');
+  Route::get('/', 'AdminController@view');
+  Route::post('/manageAdmins', 'AdminController@store');
+  Route::resource('/manageAdmins', 'AdminController');
   Route::resource('/manageCategory', 'BooksCategoryController');
   Route::resource('/manageBook', 'BooksController');
-  Route::resource('/manageUser', 'UsersController');
+  Route::resource('/manageUser', 'UserController');
 });
 
 //Login Routes
@@ -34,9 +35,10 @@ Route::prefix('/admin')->name('admin.')->group(function () {
 });
 
 
-//Public Route
+//Public Routes
 Auth::routes();
-Route::get('/', 'HomeController@index');
+Route::resource('/', 'HomeController');
+Route::post('/search', 'HomeController@search');
 Route::view('/about', 'pages.about');
 Route::view('/contact', 'pages.contact');
 Route::resource('/book', 'SingleBookController');
@@ -44,11 +46,11 @@ Route::resource('/allbook', 'AllBookController');
 Route::resource('/category', 'AllBookCategoryController');
 Route::post('/search', 'AllBookController@search');
 
+//User Route
 Route::resource('/profile', 'ProfileController')->middleware('auth');
 Route::resource('/shelves', 'ShelvesController')->middleware('auth');
 Route::resource('cart', 'CartController')->middleware('auth');
 Route::delete('remove-from-cart', 'CartController@remove')->middleware('auth');
 Route::put('update-cart', 'CartController@update')->middleware('auth');
 Route::resource('checkout', 'OrderController')->middleware('auth');
-Route::view('thankyou', 'pages.thankYou');
-// Route::resource('/shelves', 'ShelvesController', ['except' => ['create', 'edit', 'show', 'update']]);
+Route::view('thankyou', 'pages.thankYou')->middleware('auth');

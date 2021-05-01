@@ -2,7 +2,7 @@
 @section('content')
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">Create Admin</div>
+            <div class="card-header">Update Category</div>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     @foreach ($errors->all() as $error)
@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
-                                <i class="fa fa-user"></i>
+                                <img src="https://img.icons8.com/bubbles/50/000000/goodnotes.png" />
                             </div>
                             <input type="text" id="category_name" value="{{ $category->category_name }}"
                                 name="category_name" placeholder="Category Name" class="form-control">
@@ -28,18 +28,18 @@
                     </div>
                     <div class="form-group">
                         <div>
-                            <div class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                            <div class="input-group-addon ">
+                                <img src="https://img.icons8.com/bubbles/50/000000/multi-edit.png" />
                             </div>
                             <textarea class="ckeditor form-control"
-                                name="category_description">{!! $category->category_descriptions !!}</textarea>
+                                name="category_description">{!! $category->category_description !!}</textarea>
 
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
-                                <i class="fa fa-asterisk"></i>
+                                <img src="https://img.icons8.com/bubbles/50/000000/picture.png" />
                             </div>
                             <input type="file" id="category_image" value="images/{{ $category->category_image }}"
                                 name="category_image" placeholder="category image" class="form-control">
@@ -47,9 +47,9 @@
                         </div>
                     </div>
 
-                    <div>
-                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" name="submit">Update
-                        </button>
+                    <div class="form-actions form-group">
+                        <button type="submit" class="btn-sm" name="submit"
+                            style="background:#F5890D; outline: none; color:white">Update</button>
                     </div>
                 </form>
             </div>

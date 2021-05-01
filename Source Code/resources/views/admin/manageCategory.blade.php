@@ -2,7 +2,7 @@
 @section('content')
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">Create Admin</div>
+            <div class="card-header">Create Category</div>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     @foreach ($errors->all() as $error)
@@ -28,8 +28,6 @@
                             <div class="input-group-addon ">
                                 <img src="https://img.icons8.com/bubbles/50/000000/multi-edit.png" />
                             </div>
-                            {{-- <textarea class="ckeditor form-control" name="category_description" type="text"
-                                cols='30'></textarea> --}}
                         </div>
                         <textarea id='article-ckeditor' name="category_description"
                             class="form-control">{{ old('category_description') }}</textarea>
@@ -42,17 +40,6 @@
                             <input name="category_image" type="file" class="form-control" placeholder="Add Category Image">
                         </div>
                     </div>
-                    {{-- added --}}
-                    {{-- <div class="form-actions form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-asterisk"></i>
-                            </div>
-                            <input name="upload_file" type="file" class="form-control" id="upload_file">
-
-                        </div>
-                    </div> --}}
-                    {{-- added --}}
                     <div class="form-actions form-group">
                         <button type="submit" class="btn-sm" name="submit"
                             style="background:#F5890D; outline: none; color:white">Submit</button>

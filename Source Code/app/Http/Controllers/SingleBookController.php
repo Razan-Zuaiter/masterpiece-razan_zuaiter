@@ -62,10 +62,11 @@ class SingleBookController extends Controller
             ->where('books.book_id', '=', $id)
             ->get();
         $desc = json_decode($catDesc, true);
+        $more_books = Book::inRandomOrder()->take(3)->get();
         //dd($books);
         $active = false;
         $status = Shelves::where('user_id', Auth::user()->user_id)->get();
-        return view('pages.singleBook', compact('books', 'categories', 'book', 'desc', 'status', 'active'));
+        return view('pages.singleBook', compact('books', 'categories', 'book', 'desc', 'status', 'active', 'more_books'));
     }
 
 

@@ -12,8 +12,8 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-
+    <link rel="shortcut icon" href="{{ asset('/assets/img/nav.png') }}" type="image/x-icon">
+    @include('meta::manager')
     <!-- CSS
  ============================================ -->
     <!-- Bootstrap CSS -->
@@ -55,22 +55,22 @@
 
     <div class="navbar-area">
         <div class="main-responsive-nav">
+            <div class="logo" style="margin:auto">
+                <a href="/">
+                    <img src="/assets/img/logo.png" alt="image Najeeb" />
+                </a>
+            </div>
             <div class="container">
                 <div class="main-responsive-menu">
-                    <div class="logo">
-                        <a href="/">
-                            <img src="/assets/img/logo.png" alt="image Najeeb" />
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="main-navbar">
             <div class="container">
-
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="/">
-                        <img src="assets/img/logo.png" alt="image" />
+                        <img src="/assets/img/logo.png" alt="image" />
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -83,7 +83,8 @@
                                     الرئيسة
 
                                 </a>
-                                <ul class="dropdown-menu" style="display:flex;justify-content: space-between">
+
+                                <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="/about" class="nav-link">
                                             <img src="https://img.icons8.com/bubbles/50/000000/help.png" /> حول </a>
@@ -151,7 +152,7 @@
                                     الكتب و التصنيفات
 
                                 </a>
-                                <ul class="dropdown-menu" style="display:flex;justify-content: space-between">
+                                <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="/category" class="nav-link">
                                             <img src="https://img.icons8.com/bubbles/50/000000/list.png" />التصنيفات
@@ -188,7 +189,7 @@
                                         <div>
                                             @if (session('cart'))
                                                 @foreach (session('cart') as $id => $details)
-                                                    <div class="single-cart-item">
+                                                    <div class="single-cart-item" style="text-align: center">
                                                         <div class="cart-text">
                                                             <h5 class="title">
                                                                 {{ $details['name'] }}
@@ -207,8 +208,7 @@
                                                 <h5>JOD {{ $total }}</h5> --}}
                                             </div>
                                             <hr>
-                                            <div class="cart-links "
-                                                style="display:flex;justify-content: space-between">
+                                            <div class="cart-links ">
                                                 <a class="nav-link" href="/cart">
                                                     <img
                                                         src="https://img.icons8.com/bubbles/50/000000/shopping-bag.png" />
@@ -327,15 +327,15 @@
                                             </g>
                                         </svg>
 
-                                        حساب {{ Auth::user()->name }}
+                                        {{ Auth::user()->name }}
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                        <li id="nav-item" style="display:flex;justify-content: space-between">
+                                        <li id="nav-item">
                                             <a class="nav-item" href="{{ route('logout') }} "
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                                 <img src="https://img.icons8.com/bubbles/50/000000/export.png" />
                                                 {{ __('تسجيل خروج') }}
                                             </a>
@@ -350,15 +350,18 @@
 
 
                         </ul>
-                        <div class="others-options d-flex align-items-center">
+                        @guest
+                        @else
+                            <div class="others-options d-flex align-items-center">
 
-                            <div class="option-item">
+                                <div class="option-item">
 
-                                <a href="/contact" class="default-btn"><img
-                                        src="https://img.icons8.com/bubbles/25/000000/receive-cash.png" />
-                                    تبرع</a>
+                                    <a href="/contact" class="default-btn"><img
+                                            src="https://img.icons8.com/bubbles/25/000000/receive-cash.png" />
+                                        تبرع</a>
+                                </div>
                             </div>
-                        </div>
+                        @endguest
                     </div>
                 </nav>
 
@@ -385,6 +388,104 @@
 
     <!--Footer Area Start-->
 
+    <section class="footer-area pt-100 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-footer-widget">
+                        <div class="logo">
+                            <h2>
+
+                                <a href="/">نجيب</a>
+                            </h2>
+                        </div>
+                        <p>
+                            موقع القراءة الأول للأطفال العرب
+                        </p>
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank">
+                                    <i class="bx bxl-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.twitter.com/" target="_blank">
+                                    <i class="bx bxl-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.pinterest.com/" target="_blank">
+                                    <i class="bx bxl-pinterest-alt"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/" target="_blank">
+                                    <i class="bx bxl-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-footer-widget pl-5">
+                        <h3>تصفح الموقع</h3>
+                        <ul class="quick-links">
+                            <li>
+                                <a href="/about">حول</a>
+                            </li>
+                            <li>
+                                <a href="/category">كل التصنيفات</a>
+                            </li>
+                            <li>
+                                <a href="/allbook">كل الكتب</a>
+                            </li>
+                            <li>
+                                <a href="/shelves">الرف</a>
+                            </li>
+                            <li>
+                                <a href="/cart">الشراء</a>
+                            </li>
+                            <li>
+                                <a href="/profile">الصفحة الشخصية</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h3>تواصل معنا</h3>
+                        <ul class="footer-contact-info">
+                            <li>
+                                <i class="bx bxs-phone"></i>
+                                <span>هاتف</span>
+                                <a href="tel:0770317363">0770317363</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-envelope"></i>
+                                <span>البريد الالكتروني</span>
+                                <a href="mailto:zuaiter.razan@gmail.com">zuaiter.razan@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <i class="bx bx-map"></i>
+                                <span>العنوان</span>
+                                اربد ,عمان ,الاردن
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-footer-widget">
+                        <a href="/">
+                            <img src="/assets/img/logo.png" alt="image Najeeb" />
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Scroll to Top End -->
 </body>
 <!-- JS

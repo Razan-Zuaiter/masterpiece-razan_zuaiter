@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
+use App\Book;
+use App\Order;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
-
-
     public function index()
     {
         $admins = Admin::all();
-        return view('admin.manageAdmins', compact('users'));
+        return view('admin.manageAdmins', compact('admins'));
     }
 
     public function store(Request $request)
@@ -23,7 +23,6 @@ class UserController extends Controller
         request()->validate([
             'name' => 'required|min:4',
             'email' => 'required|email',
-            'role' => 'min:3',
             'password' => 'required|min:6',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -37,10 +36,9 @@ class UserController extends Controller
         $var->name = $request->input('name');
         $var->email = $request->input('email');
         $var->password = Hash::make($request->input('password'));
-        // $var->role = $request->input('role');
         $var->image = $imageName;
         $var->save();
-        return redirect('/admin/manageAdmins')->with('success', 'Admin created successfully.');
+        return back()->with('success', 'Admin created successfully.');
     }
 
     public function edit($id)
@@ -78,7 +76,7 @@ class UserController extends Controller
     public function destroy($id)
     {
 
-        //delete the image from the folder if it is anything but keep it if it is the default image
+
         $admin = Admin::find($id);
         if ($admin->image != 'default.png') {
             File::delete(public_path('images/' . $admin->image));
@@ -90,6 +88,9 @@ class UserController extends Controller
     public function view()
     {
         $users = User::count();
-        return view('admin.index', compact('users'));
+        $admins = Admin::count();
+        $books = Book::count();
+        $orders = Order::count();
+        return view('admin.index', compact('users', 'books', 'orders', 'admins'));
     }
 }

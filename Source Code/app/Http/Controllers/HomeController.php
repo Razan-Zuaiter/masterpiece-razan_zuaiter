@@ -71,7 +71,31 @@ class HomeController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
 
+        $search = $request->input('search');
+
+        $categories = Category::all();
+
+
+
+        $book = DB::table('categories')
+            ->join('books', 'categories.category_id', '=', 'books.category_id')
+            ->select('categories.category_name', 'books.*')
+            ->get();
+
+        $books = Book::query('book_name', 'book_image')
+            ->where('book_name', 'LIKE', "%{$search}%")
+            ->get();
+
+        // if ($books !=  $search) {
+        //     return view('pages.notFound');
+        // }
+        // dd($search);
+
+        return view('pages.index', compact('book', 'categories', 'books'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

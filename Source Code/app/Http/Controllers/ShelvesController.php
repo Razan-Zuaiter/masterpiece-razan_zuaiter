@@ -25,7 +25,8 @@ class ShelvesController extends Controller
 
         $user = Auth::user();
         $shelves = Shelves::all()->where("user_id", "=", $user->user_id);
-        // dd($shelves);
+        //$shelves_count = Shelves::count()->where("user_id", "=", $user->user_id);
+
         return view('pages.shelves', compact('user', 'shelves'));
     }
 

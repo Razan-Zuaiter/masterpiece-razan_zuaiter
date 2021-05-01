@@ -1,5 +1,4 @@
 @extends('layouts.templet')
-
 @section('shop_content')
 
 
@@ -22,7 +21,7 @@
     <script>
         setTimeout(() => {
             window.location.href = "/";
-        }, 10000);
+        }, 3000);
 
     </script>';
     </body>
